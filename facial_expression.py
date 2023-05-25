@@ -8,21 +8,17 @@ class facialExper():
         self.face = cv2.CascadeClassifier(self.module_path)
         pass
 
-    def setFrame(self, frame):
-        self.frame = frame
-        pass
-
     def detectExpr(self, frame):
-        self.setFrame(frame)
+        self.frame = frame
         self.imgGray = cv2.cvtColor(self.frame, cv2.COLOR_BGR2GRAY)
         faces = self.face.detectMultiScale(self.imgGray, minSize=(30, 30))
-        emotions = []
+        emotions = ""
 
         for (x, y, w, h) in faces:
             faces = self.frame[y:y+h, x:x+w]
             outputs = ['emotion']
             result = dff.analyze(faces, actions=outputs, enforce_detection=False)
-            emotions.append(result[0]['dominant_emotion'])
+            emotions = result[0]['dominant_emotion']
         return emotions
 
 
