@@ -1,0 +1,19 @@
+import cv2
+from deepface import DeepFace as dff
+import json
+
+class facialExper():
+    def __init__(self) -> None:
+        self.module_path = 'haarcascade_frontalface_default.xml'
+        self.face = cv2.CascadeClassifier(self.module_path)
+        pass
+
+    def setFrame(self, frame):
+        self.frame = frame
+        pass
+
+    def detectExpr(self, frame):
+        self.setFrame(frame)
+        self.img = cv2.cvtColor(self.frame, cv2.COLOR_BGR2GRAY)
+        faces = faces
+    
