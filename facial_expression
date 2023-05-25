@@ -14,6 +14,27 @@ class facialExper():
 
     def detectExpr(self, frame):
         self.setFrame(frame)
-        self.img = cv2.cvtColor(self.frame, cv2.COLOR_BGR2GRAY)
-        faces = faces
-    
+        self.imgGray = cv2.cvtColor(self.frame, cv2.COLOR_BGR2GRAY)
+        faces = self.face.detectMultiScale(self.imgGray, minSize=(30, 30))
+        emotions = []
+
+        for (x, y, w, h) in faces:
+            faces = self.frame[y:y+h, x:x+w]
+            outputs = ['emotion']
+            result = dff.analyze(faces, actions=outputs, enforce_detection=False)
+            emotions.append(result[0]['dominant_emotion'])
+        return emotions
+
+
+def main():
+    fe = facialExper()
+
+    vidcap = cv2.VideoCapture(0)
+    while vidcap.isOpened():
+        ret, frame = vidcap.read()
+        emo = fe.detectExpr(frame)#imgpath here
+        print(emo)
+    else:
+        print("Cannot open camera")
+if __name__ == "__main__":
+    main()
