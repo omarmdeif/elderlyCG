@@ -5,6 +5,7 @@ import cv2
 import numpy as np
 import face_recognition
 from CFACE import Face_Detection
+from datetime import datetime
 
 def main():
     ct = 1
@@ -12,16 +13,17 @@ def main():
     fe = facialExper()
     fd = Face_Detection()
     egfe = ccrud()
-    field = ["id", "emotion", "gaze", "faceName"]
+    field = ["id", "dateTime","emotion", "gaze", "faceName"]
     egfe.createFile("gazeEmo.csv", field)
     vidcap = cv2.VideoCapture(0)
     while vidcap.isOpened():
         ret, frame = vidcap.read()
+        dt = datetime.now()
         pos = eg.detect_Gaze(frame)
         emo = fe.detectExpr(frame)
         det = fd.detect_face(frame)
-        print("emotion, position: ", emo + "," + pos + "," + det[0][0])
-        egfe.writeRow("gazeEmo.csv", [str(ct), emo, pos, det[0][0]])
+        print("emotion, position: ", dt+","+emo + "," + pos + "," + det[0][0])
+        egfe.writeRow("gazeEmo.csv", [str(ct), dt, emo, pos, det[0][0]])
         ct+=1
 
         cv2.imshow('webcam',frame)
