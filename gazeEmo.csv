@@ -1,0 +1,67 @@
+id,emotion,gaze
+1,happy,Center
+2,happy,Center
+3,happy,Center
+4,happy,right
+5,happy,Center
+6,happy,Center
+7,happy,Center
+8,happy,Center
+9,neutral,Center
+10,neutral, left
+11,neutral, left
+12,neutral, left
+13,neutral, left
+14,neutral, left
+15,neutral, left
+16,neutral,Center
+17,neutral,Center
+18,neutral,Center
+19,neutral,Center
+20,happy,Center
+21,happy,Center
+22,happy,Center
+23,happy,Center
+24,happy,Center
+25,happy,Center
+26,happy,Center
+27,happy,Center
+28,happy,Center
+29,happy,Center
+30,happy,Center
+31,happy,right
+32,happy,right
+33,happy,Center
+34,happy,right
+35,neutral,right
+36,neutral,right
+37,neutral,Center
+38,neutral,Center
+39,neutral,Center
+40,neutral,Center
+41,neutral,Center
+42,neutral,Center
+43,neutral,Center
+44,neutral,Center
+45,neutral,Center
+46,neutral,Center
+47,neutral,Center
+48,neutral,Center
+49,neutral,Center
+50,neutral,Center
+51,neutral,Center
+52,neutral,Center
+53,neutral,Center
+54,sad,Center
+55,happy,Center
+56,happy,Center
+57,neutral,Center
+58,neutral,Center
+59,neutral,Center
+60,happy,Center
+61,neutral,right
+62,neutral,Center
+63,neutral,right
+64,neutral,right
+65,neutral,right
+66,neutral,Center

@@ -17,6 +17,7 @@ def main():
         emo = fe.detectExpr(frame)
         print("emotion, position: ", emo + "," + pos)
         egfe.writeRow("gazeEmo.csv", [str(ct), emo, pos])
+        ct+=1
     else:
         print("Cannot open camera")
 

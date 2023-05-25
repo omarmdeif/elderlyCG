@@ -32,7 +32,7 @@ class ccrud():
         pass
 
     def writeRow(self, filename, field):
-        with open(filename, 'w', newline='') as file:
+        with open(filename, 'a', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(field)
             print("Row Written!!!!")
