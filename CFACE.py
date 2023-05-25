@@ -1,4 +1,3 @@
-
 import os
 import cv2
 import face_recognition
@@ -49,11 +48,3 @@ class Face_Detection:
                 detected_faces.append([name,faceLoc])
 
         return detected_faces
-
-    
-
-
-
-            
-
-

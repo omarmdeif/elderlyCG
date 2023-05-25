@@ -2,22 +2,30 @@ from eye_gaze import eyeGaze
 from facial_expression import facialExper
 from csvcrud import ccrud
 import cv2
+import numpy as np
+import face_recognition
+from CFACE import Face_Detection
 
 def main():
     ct = 1
     eg = eyeGaze()
     fe = facialExper()
+    fd = Face_Detection()
     egfe = ccrud()
-    field = ["id", "emotion", "gaze"]
+    field = ["id", "emotion", "gaze", "faceName"]
     egfe.createFile("gazeEmo.csv", field)
     vidcap = cv2.VideoCapture(0)
     while vidcap.isOpened():
         ret, frame = vidcap.read()
         pos = eg.detect_Gaze(frame)
         emo = fe.detectExpr(frame)
-        print("emotion, position: ", emo + "," + pos)
-        egfe.writeRow("gazeEmo.csv", [str(ct), emo, pos])
+        det = fd.detect_face(frame)
+        print("emotion, position: ", emo + "," + pos + "," + det[0][0])
+        egfe.writeRow("gazeEmo.csv", [str(ct), emo, pos, det[0][0]])
         ct+=1
+
+        cv2.imshow('webcam',frame)
+        cv2.waitKey(1)
     else:
         print("Cannot open camera")
 

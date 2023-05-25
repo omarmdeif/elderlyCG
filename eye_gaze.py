@@ -48,7 +48,7 @@ class eyeGaze():
                         position= 'Center'
                         flag=1
                     if ratio > 0.6:
-                        position = ' left'
+                        position = 'left'
                         flag=1
                         self.ctleft+=1
                     if flag!=1:
